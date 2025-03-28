@@ -1,0 +1,15 @@
+name: Secret Test
+
+on: [push]
+
+jobs:
+  test-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Print secret
+        run: echo "Secret exists!"
+        env:
+          MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
